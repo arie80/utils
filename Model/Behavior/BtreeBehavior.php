@@ -204,7 +204,7 @@ class BTreeBehavior extends ModelBehavior {
  * @param boolean $direct whether to count direct, or all, children
  * @return integer number of child nodes
  */
-	function childcount(&$Model, $id = null, $direct = false) {
+	function childCount(&$Model, $id = null, $direct = false) {
 		if (is_array($id)) {
 			extract (array_merge(array('id' => null), $id));
 		}
@@ -305,7 +305,7 @@ class BTreeBehavior extends ModelBehavior {
  * @param integer $recursive The number of levels deep to fetch associated records
  * @return array An associative array of records, where the id is the key, and the display field is the value
  */
-	function generatetreelist(&$Model, $conditions = null, $keyPath = null, $valuePath = null, $spacer = '_', $recursive = null) {
+	function generateTreeList(&$Model, $conditions = null, $keyPath = null, $valuePath = null, $spacer = '_', $recursive = null) {
 		$overrideRecursive = $recursive;
 		extract($this->settings[$Model->alias]);
 		if (!is_null($overrideRecursive)) {
@@ -359,7 +359,7 @@ class BTreeBehavior extends ModelBehavior {
  * @param integer $recursive The number of levels deep to fetch associated records
  * @return array Array of data for the parent node
  */
-	function getparentnode(&$Model, $id = null, $fields = null, $recursive = null) {
+	function getParentNode(&$Model, $id = null, $fields = null, $recursive = null) {
 		if (is_array($id)) {
 			extract (array_merge(array('id' => null), $id));
 		}
@@ -391,7 +391,7 @@ class BTreeBehavior extends ModelBehavior {
  * @param integer $recursive The number of levels deep to fetch associated records
  * @return array Array of nodes from top most parent to current node
  */
-	function getpath(&$Model, $id = null, $fields = null, $recursive = null) {
+	function getPath(&$Model, $id = null, $fields = null, $recursive = null) {
 		$cachequeries = $Model->cacheQueries;
 		$Model->cacheQueries = false;
 
@@ -465,7 +465,7 @@ class BTreeBehavior extends ModelBehavior {
  * @param mixed $number how many places to move the node or true to move to last position
  * @return boolean true on success, false on failure
  */
-	function movedown(&$Model, $id = null, $number = 1) {
+	function moveDown(&$Model, $id = null, $number = 1) {
 		if (is_array($id)) {
 			extract (array_merge(array('id' => null), $id));
 		}
@@ -523,7 +523,7 @@ class BTreeBehavior extends ModelBehavior {
  * @param mixed $number how many places to move the node, or true to move to first position
  * @return boolean true on success, false on failure
  */
-	function moveup(&$Model, $id = null, $number = 1) {
+	function moveUp(&$Model, $id = null, $number = 1) {
 		if (is_array($id)) {
 			extract (array_merge(array('id' => null), $id));
 		}
@@ -723,7 +723,7 @@ class BTreeBehavior extends ModelBehavior {
  * @param boolean $delete whether to delete the node after reparenting children (if any)
  * @return boolean true on success, false on failure
  */
-	function removefromtree(&$Model, $id = null, $delete = false) {
+	function removeFromTree(&$Model, $id = null, $delete = false) {
 		if (is_array($id)) {
 			extract (array_merge(array('id' => null), $id));
 		}
